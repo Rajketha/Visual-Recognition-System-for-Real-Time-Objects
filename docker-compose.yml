@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  backend:
+    build: ./backend
+    container_name: visual_recognition_backend
+    ports:
+      - "5000:5000"
+    volumes:
+      - backend_uploads:/app/static/uploads
+      - backend_instance:/app/instance
+    environment:
+      - JWT_SECRET_KEY=docker-jwt-secret-key-1234
+      - DATABASE_URL=sqlite:///instance/visual_recognition.db
+    restart: unless-stopped
+
+  frontend:
+    build: ./frontend
+    container_name: visual_recognition_frontend
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    restart: unless-stopped
+
+volumes:
+  backend_uploads:
+  backend_instance:

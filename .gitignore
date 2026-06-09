@@ -1,0 +1,26 @@
+# Dependencies
+node_modules/
+__pycache__/
+*.pyc
+
+# Local databases and instances
+instance/
+*.db
+
+# Large Model files (automatically downloaded by backend/ai_engine.py)
+*.onnx
+yolov8n.onnx
+
+# Uploaded/Cached files
+backend/static/uploads/*
+!backend/static/uploads/.gitkeep
+
+# Build and production outputs
+dist/
+build/
+.env
+
+# Local settings / tool directories
+.gemini/
+.vscode/
+.idea/

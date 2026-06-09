@@ -1,0 +1,412 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Visual Recognition System — Real-time object detection powered by YOLOv8 and deep neural networks." />
+    <meta name="theme-color" content="#080b14" />
+    <title>Visual Recognition System</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav id="nav">
+      <ul>
+        <li><a href="#home" class="active"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="#apps"><i class="fas fa-th-large"></i> Applications</a></li>
+        <li><a href="#features"><i class="fas fa-microchip"></i> Features</a></li>
+        <li><a href="#architecture"><i class="fas fa-sitemap"></i> Architecture</a></li>
+        <li><a href="#how-it-works"><i class="fas fa-play-circle"></i> How It Works</a></li>
+        <li><a href="#about"><i class="fas fa-info-circle"></i> About</a></li>
+      </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+      <div class="cinematic-title">
+        <div class="title-glow"></div>
+        <canvas class="title-particles"></canvas>
+        <h1 class="main-title">
+          <span class="title-layer top-layer">VISUAL</span>
+          <span class="title-layer glitch-layer">RECOGNITION</span>
+          <span class="title-layer bottom-layer">SYSTEM</span>
+        </h1>
+        <div class="title-flare"></div>
+        <div class="title-subtitle">
+          Real-Time Objects Using Deep Neural Networks & Webcam
+        </div>
+      </div>
+
+      <div id="videoContainer">
+        <video id="video" muted playsinline></video>
+        <canvas id="detectionOverlay"></canvas>
+      </div>
+
+      <div class="camera-controls">
+        <button id="startBtn" class="control-btn start-btn">
+          <i class="fas fa-play"></i> Start Camera
+        </button>
+        <button id="stopBtn" class="control-btn stop-btn" disabled>
+          <i class="fas fa-stop"></i> Stop Camera
+        </button>
+      </div>
+
+      <div id="status">Click Start to begin live view</div>
+    </section>
+
+    <!-- Apps Section -->
+    <section id="apps">
+      <h2>Our Applications</h2>
+      <p class="section-subtitle">
+        Real-world computer vision solutions powered by our core technology
+      </p>
+
+      <div class="apps-grid">
+        <div class="app-card">
+          <div class="app-image autodrive-bg">
+            <i class="fas fa-car-side"></i>
+          </div>
+          <div class="app-name">AutoDrive</div>
+          <div class="app-description">
+            Self-driving vision system with real-time obstacle detection and
+            lane tracking
+          </div>
+        </div>
+
+        <div class="app-card">
+          <div class="app-image mediscan-bg">
+            <i class="fas fa-heartbeat"></i>
+          </div>
+          <div class="app-name">MediScan</div>
+          <div class="app-description">
+            AI-powered medical imaging for X-ray, MRI analysis and diagnostics
+          </div>
+        </div>
+
+        <div class="app-card">
+          <div class="app-image faceid-bg">
+            <i class="fas fa-user-shield"></i>
+          </div>
+          <div class="app-name">FaceID Pro</div>
+          <div class="app-description">
+            Enterprise-grade facial recognition with liveness detection
+          </div>
+        </div>
+
+        <div class="app-card">
+          <div class="app-image qualitycheck-bg">
+            <i class="fas fa-industry"></i>
+          </div>
+          <div class="app-name">QualityCheck</div>
+          <div class="app-description">
+            Production line defect detection at 1000+ items per minute
+          </div>
+        </div>
+
+        <div class="app-card">
+          <div class="app-image cropguard-bg">
+            <i class="fas fa-seedling"></i>
+          </div>
+          <div class="app-name">CropGuard</div>
+          <div class="app-description">
+            Drone-based crop health monitoring and yield prediction
+          </div>
+        </div>
+
+        <div class="app-card">
+          <div class="app-image smartretail-bg">
+            <i class="fas fa-shopping-cart"></i>
+          </div>
+          <div class="app-name">SmartRetail</div>
+          <div class="app-description">
+            Shelf monitoring, inventory tracking and customer behavior analysis
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Core AI Features Section -->
+    <section id="features">
+      <h2>Core AI Features</h2>
+      <p class="section-subtitle">
+        Production-grade computer vision capabilities powering our applications
+      </p>
+
+      <div class="features">
+        <div class="feature dynamic">
+          <div class="feature-icon">🎯</div>
+          <h3>92%+ Accuracy</h3>
+          <p>
+            Trained on 5M+ labeled images across 500+ object classes using
+            state-of-the-art CNN architectures
+          </p>
+        </div>
+
+        <div class="feature dynamic">
+          <div class="feature-icon">⚡</div>
+          <h3>42ms Inference</h3>
+          <p>
+            Optimized TensorRT models deliver sub-50ms real-time detection on
+            edge devices and browsers
+          </p>
+        </div>
+
+        <div class="feature dynamic">
+          <div class="feature-icon">📊</div>
+          <h3>Multi-Object Tracking</h3>
+          <p>
+            DeepSORT algorithm maintains object identities across frames with
+            Kalman filtering
+          </p>
+        </div>
+
+        <div class="feature dynamic">
+          <div class="feature-icon">🔍</div>
+          <h3>80+ Object Classes</h3>
+          <p>
+            COCO-trained model detects people, vehicles, furniture, electronics,
+            animals and more
+          </p>
+        </div>
+
+        <div class="feature dynamic">
+          <div class="feature-icon">🧠</div>
+          <h3>Model Ensemble</h3>
+          <p>
+            Combines YOLOv8 + SSD + EfficientDet for maximum precision and
+            recall across scenarios
+          </p>
+        </div>
+
+        <div class="feature dynamic">
+          <div class="feature-icon">📈</div>
+          <h3>Adaptive Confidence</h3>
+          <p>
+            Dynamic thresholding adjusts detection sensitivity based on scene
+            complexity and motion
+          </p>
+        </div>
+      </div>
+    </section>
+    <!-- REPLACE ENTIRE #architecture SECTION WITH THIS -->
+    <section id="architecture">
+      <h2>System Architecture</h2>
+      <p class="section-subtitle">
+        Production-grade computer vision pipeline powered by cutting-edge AI
+        technologies
+      </p>
+
+      <div class="architecture-container">
+        <!-- FRONTEND STACK -->
+        <div class="tech-stack frontend-stack">
+          <div class="stack-header">
+            <div class="stack-icon">🌐</div>
+            <h3>Frontend Stack</h3>
+          </div>
+          <div class="tech-grid">
+            <div class="tech-card">
+              <div class="tech-icon">⚡</div>
+              <div class="tech-name">WebRTC</div>
+              <div class="tech-desc">Real-time webcam streaming</div>
+            </div>
+            <div class="tech-card">
+              <div class="tech-icon">🎨</div>
+              <div class="tech-name">Canvas 2D</div>
+              <div class="tech-desc">Detection overlay rendering</div>
+            </div>
+            <div class="tech-card">
+              <div class="tech-icon">📱</div>
+              <div class="tech-name">MediaDevices API</div>
+              <div class="tech-desc">Cross-browser camera access</div>
+            </div>
+            <div class="tech-card">
+              <div class="tech-icon">⚙️</div>
+              <div class="tech-name">RAF Loop</div>
+              <div class="tech-desc">60fps detection pipeline</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CENTRAL PIPELINE - ALWAYS FULL WIDTH -->
+        <div class="central-pipeline">
+          <div class="pipeline-title">
+            <i class="fas fa-sitemap"></i>
+            <h3>Processing Pipeline</h3>
+          </div>
+
+          <div class="diagram-container">
+            <div class="pipeline-stage webcam-stage">
+              <i class="fas fa-video"></i>
+              <div class="stage-label">Webcam<br />Capture</div>
+            </div>
+
+            <div class="flow-arrow">⬇️</div>
+
+            <div class="pipeline-stage frontend-stage">
+              <i class="fas fa-laptop-code"></i>
+              <div class="stage-label">Browser<br />Frontend</div>
+            </div>
+
+            <div class="flow-arrow api-arrow">🔌API</div>
+
+            <div class="pipeline-stage backend-stage">
+              <i class="fas fa-server"></i>
+              <div class="stage-label">AI<br />Backend</div>
+            </div>
+
+            <div class="flow-arrow">⬇️</div>
+
+            <div class="pipeline-stage ai-stage">
+              <i class="fas fa-brain"></i>
+              <div class="stage-label">
+                <strong>YOLOv8</strong><br />
+                <small>Ultralytics</small>
+              </div>
+            </div>
+
+            <div class="flow-arrow">⬇️</div>
+
+            <div class="pipeline-stage output-stage">
+              <i class="fas fa-boxes"></i>
+              <div class="stage-label">
+                Bounding<br />Boxes <span class="confidence">92%+</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- BACKEND STACK - FULLY VISIBLE -->
+        <div class="tech-stack backend-stack">
+          <div class="stack-header">
+            <div class="stack-icon">⚙️</div>
+            <h3>Backend Stack</h3>
+          </div>
+          <div class="tech-grid">
+            <div class="tech-card yolo-card">
+              <div class="tech-icon">🎯</div>
+              <div class="tech-name">YOLOv8</div>
+              <div class="tech-desc">Ultralytics real-time detection</div>
+            </div>
+            <div class="tech-card">
+              <div class="tech-icon">🐍</div>
+              <div class="tech-name">Python</div>
+              <div class="tech-desc">Core inference engine</div>
+            </div>
+            <div class="tech-card">
+              <div class="tech-icon">📸</div>
+              <div class="tech-name">OpenCV</div>
+              <div class="tech-desc">Image preprocessing</div>
+            </div>
+            <div class="tech-card">
+              <div class="tech-icon">🔥</div>
+              <div class="tech-name">PyTorch</div>
+              <div class="tech-desc">Deep learning backend</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How It Works - NEW INTERACTIVE STEP CARDS -->
+    <section id="how-it-works">
+      <h2>How It Works</h2>
+      <p class="section-subtitle">
+        5 simple steps to real-time object detection
+      </p>
+
+      <div class="steps-container">
+        <!-- Step 1 -->
+        <div class="step-card">
+          <div class="step-image">
+            <i class="fas fa-play-circle"></i>
+          </div>
+          <div class="step-title">Click Start</div>
+          <div class="step-subtitle">Activate Camera</div>
+          <div class="step-details hidden">
+            <p><strong>Action:</strong> Click green "Start Camera" button</p>
+            <p><strong>Result:</strong> Requests camera permission</p>
+            <p><strong>Duration:</strong> 2-3 seconds</p>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="step-card">
+          <div class="step-image">
+            <i class="fas fa-video"></i>
+          </div>
+          <div class="step-title">Live Feed</div>
+          <div class="step-subtitle">Mirror Preview</div>
+          <div class="step-details hidden">
+            <p><strong>View:</strong> Real-time mirrored camera feed</p>
+            <p><strong>Status:</strong> "Live View Active" message</p>
+            <p><strong>Ready:</strong> Click Start again for detection</p>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="step-card">
+          <div class="step-image">
+            <i class="fas fa-hand-point-up"></i>
+          </div>
+          <div class="step-title">Click Again</div>
+          <div class="step-subtitle">Enable Detection</div>
+          <div class="step-details hidden">
+            <p><strong>Action:</strong> Click Start button second time</p>
+            <p><strong>Status:</strong> Changes to "Detecting..."</p>
+            <p><strong>Overlay:</strong> Green glow appears</p>
+          </div>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="step-card">
+          <div class="step-image">
+            <i class="fas fa-border-all"></i>
+          </div>
+          <div class="step-title">Bounding Boxes</div>
+          <div class="step-subtitle">Objects Detected</div>
+          <div class="step-details hidden">
+            <p><strong>Visual:</strong> Green rectangles around objects</p>
+            <p><strong>Labels:</strong> Object name + confidence %</p>
+            <p><strong>Example:</strong> "CHAIR DETECTED (92%)"</p>
+          </div>
+        </div>
+
+        <!-- Step 5 -->
+        <div class="step-card">
+          <div class="step-image">
+            <i class="fas fa-stop-circle"></i>
+          </div>
+          <div class="step-title">Stop When Done</div>
+          <div class="step-subtitle">Clean Shutdown</div>
+          <div class="step-details hidden">
+            <p><strong>Action:</strong> Click red "Stop Camera" button</p>
+            <p><strong>Result:</strong> Camera + detection stops</p>
+            <p><strong>Keyboard:</strong> ESC key also works</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section - Standalone (Outside Main) -->
+    <section id="about" class="about-section">
+      <div class="about-box">
+        <h2>Project Info</h2>
+        <p class="center-text">
+          Advanced frontend with MediaDevices API, Canvas particle systems, CSS
+          3D transforms, manual camera controls with live view/detection toggle,
+          and cinematic visual effects. Production-ready computer vision
+          pipeline with real-time object detection capabilities.
+        </p>
+      </div>
+    </section>
+
+    <script src="script.js"></script>
+  </body>
+</html>
