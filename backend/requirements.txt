@@ -7,3 +7,4 @@ psutil==5.9.6
 bcrypt==4.1.2
 numpy==1.26.2
 ultralytics==8.0.222
+gunicorn==21.2.0
