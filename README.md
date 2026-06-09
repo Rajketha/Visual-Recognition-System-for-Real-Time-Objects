@@ -4,6 +4,26 @@ An industry-grade real-time object detection system linking a **React (Vite + Ta
 
 ---
 
+## ⚡ One-Click Cloud Deployment (Make it Live)
+
+You can deploy this full-stack project live in just a few clicks.
+
+### 1. Deploy Backend API (Python Flask)
+Render handles Flask backend hosting for free. Click the button below to automatically clone and launch the backend API:
+
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/Rajketha/Visual-Recognition-System-for-Real-Time-Objects)
+
+*(Ensure your Render service is configured to build `backend` subfolder using `pip install -r requirements.txt` and start with `gunicorn app:app`)*
+
+### 2. Deploy Frontend Client (React)
+Vercel hosts static frontend assets for free. Click the button below to import the frontend into your Vercel dashboard:
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/Rajketha/Visual-Recognition-System-for-Real-Time-Objects&root-directory=frontend)
+
+*(Add an environment variable `VITE_API_URL` pointing to your Render backend URL during setup)*
+
+---
+
 ## Architecture Layout
 
 ```
